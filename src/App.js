@@ -11,13 +11,14 @@ function App() {
       <Link to="/search">Search</Link>
 
       <Routes>
-        <Route exact path="/">
-          App Placeholder
-        </Route>
-
-        <Route path="/search">
-          test
-        </Route>
+        <Route
+          exact
+          path="/"
+          element={
+            <h1>test</h1>
+          }
+        />
+        <Route path="/search" />
       </Routes>
 
     </>
