@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from './img/logo.svg';
 
 function Header() {
   return (
     <header>
-      <img src={logo} alt="" />
+      <Link to="/">
+        <img src={logo} alt="" />
+      </Link>
     </header>
   );
 }
