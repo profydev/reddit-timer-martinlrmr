@@ -7,10 +7,9 @@ function App() {
     <>
       <GlobalStyles />
 
-      <Link to="/">Home</Link>
-      <Link to="/search">Search</Link>
-
       <Routes>
+        <Link to="/">Home</Link>
+        <Link to="/search">Search</Link>
         <Route
           exact
           path="/"
