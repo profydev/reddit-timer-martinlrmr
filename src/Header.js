@@ -5,9 +5,15 @@ import logo from './img/logo.svg';
 function Header() {
   return (
     <header>
-      <Link to="/">
-        <img src={logo} alt="" />
-      </Link>
+      <ul>
+        <li>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+        </li>
+        <li><Link to="#how-it-works">How It Works</Link></li>
+        <li><Link to="#about">About</Link></li>
+      </ul>
     </header>
   );
 }
