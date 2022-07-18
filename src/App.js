@@ -7,25 +7,8 @@ function App() {
     <>
       <GlobalStyles />
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            (
-              <>
-                <h1>test</h1>
-              </>
-            )
-      } />
-        <Route
-          path="/search"
-          element={
-            (
-              <>
-                <h1>test 2</h1>
-              </>
-            )
-      } />
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/search" element={<h1>Search</h1>} />
       </Routes>
     </>
   );
