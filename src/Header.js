@@ -11,6 +11,7 @@ function Header() {
             <img src={logo} alt="" />
           </Link>
         </li>
+        <li><Link to="/search/javascript">Search</Link></li>
         <li><Link to="#how-it-works">How It Works</Link></li>
         <li><Link to="#about">About</Link></li>
       </ul>
