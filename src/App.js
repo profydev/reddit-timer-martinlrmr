@@ -1,15 +1,10 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import GlobalStyles from './globalStyles';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
-
       <Routes>
-        <GlobalStyles />
-        <Link to="/">Home</Link>
-        <Link to="/search">Search</Link>
         <Route
           exact
           path="/"
