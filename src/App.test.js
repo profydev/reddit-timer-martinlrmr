@@ -5,8 +5,8 @@ import App from './App';
 
 test('renders App', () => {
   render(
-  <Router>
-    <App />
-  </Router>
+    <Router>
+      <App />
+    </Router>,
   );
 });
