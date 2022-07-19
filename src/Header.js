@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import * as Styled from './Header.styled';
 import logo from './img/logo.svg';
 
@@ -11,10 +11,9 @@ function Header() {
       </Styled.LinkImg>
       <Styled.Ul>
         <Styled.Li><Styled.LinkLi to="/search/javascript">Search</Styled.LinkLi></Styled.Li>
-        <Styled.Li><Styled.LinkLi to="/#how-it-works">How It Works</Styled.LinkLi></Styled.Li>
+        <Styled.Li><Styled.LinkLi to="/#how-it-works">How it works</Styled.LinkLi></Styled.Li>
         <Styled.Li><Styled.LinkLi to="/#about">About</Styled.LinkLi></Styled.Li>
       </Styled.Ul>
-      <Link to="/" />
     </Styled.Header>
   );
 }

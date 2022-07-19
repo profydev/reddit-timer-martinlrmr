@@ -14,8 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Home Page</h1>} />
           <Route path="/search" element={<h1>Search</h1>} />
-          <Route path="/#about" />
-          <Route path="/#how-it-works" />
         </Routes>
       </ThemeProvider>
     </>

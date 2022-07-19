@@ -7,8 +7,8 @@ export const Header = styled.header`
 `;
 
 export const LinkImg = styled(Link)`
-  display: flex;
-  margin-right: auto;
+    display: flex;
+    margin-right: auto;
 `;
 
 export const LinkLi = styled(Link)`
@@ -16,7 +16,7 @@ export const LinkLi = styled(Link)`
   font-size: 1rem;
   color: #636363;
   text-decoration: none;
-  cursor: pointer;
+  cursor: pointer
 `;
 
 export const Ul = styled.ul`
