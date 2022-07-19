@@ -11,8 +11,8 @@ function Header() {
       </Styled.LinkImg>
       <Styled.Ul>
         <Styled.Li><Styled.LinkLi to="/search/javascript">Search</Styled.LinkLi></Styled.Li>
-        <Styled.Li><Styled.LinkLi to="/" hash="#how-it-works">How It Works</Styled.LinkLi></Styled.Li>
-        <Styled.Li><Styled.LinkLi to="/" hash="#about">About</Styled.LinkLi></Styled.Li>
+        <Styled.Li><Styled.LinkLi to="/#how-it-works">How It Works</Styled.LinkLi></Styled.Li>
+        <Styled.Li><Styled.LinkLi to="/#about">About</Styled.LinkLi></Styled.Li>
       </Styled.Ul>
     </Styled.Header>
   );
