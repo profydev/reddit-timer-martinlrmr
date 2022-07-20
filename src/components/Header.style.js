@@ -1,28 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link as UnstyledLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.header`
   display: flex;
-  padding: 32px 80px 32px 80px;
+  padding: 2em 5em 2em 5em;
 `;
 
-export const LinkImg = styled(Link)`
-    display: flex;
+export const LinkImg = styled(UnstyledLink)`
     margin-right: auto;
 `;
 
-export const LinkLi = styled(Link)`
+export const Link = styled(UnstyledLink)`
   font-family: 'Montserrat';
   font-size: 1rem;
-  color: #636363;
+  color: ${(props) => props.theme.color.midDark};
   text-decoration: none;
-  cursor: pointer
+  cursor: pointer;
 `;
 
 export const Ul = styled.ul`
   display: flex;
-  gap: 1.5rem;
   align-items: center;
+  height: 100%;
+  gap: 1.625em;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -34,5 +34,5 @@ export const Li = styled.li`
 `;
 
 export const Img = styled.img`
-  width: 150px;
+  width: 9.375rem;
 `;
