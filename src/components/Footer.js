@@ -5,7 +5,9 @@ import logoFooter from '../img/logo-footer.svg';
 function Footer() {
   return (
     <S.Footer>
-      <S.Img src={logoFooter} />
+      <S.Link to="/" aria-label="logo-footer">
+        <S.Img src={logoFooter} />
+      </S.Link>
     </S.Footer>
   );
 }
