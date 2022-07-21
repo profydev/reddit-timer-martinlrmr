@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
@@ -11,6 +11,7 @@ import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
 
 function App() {
+  const [subreddit, setSubreddit] = useState('javascript')
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -20,7 +21,7 @@ function App() {
         <S.ContentContainer>
           <Routes>
             <Route path="/search" element={<h1>Search</h1>} />
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<Homepage subreddit={subreddit}/>} />
           </Routes>
         </S.ContentContainer>
         <Footer />
