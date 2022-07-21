@@ -17,9 +17,21 @@ test('renders App', () => {
 });
 
 describe('Header', () => {
-  test('"Logo" links to correct url', () => {
+  test('"Header Logo" links to correct url', () => {
     setup();
-    const link = screen.getByRole('link', { name: /logo/i });
+    const link = screen.getByRole('link', { name: /logo-header/i });
+    userEvent.click(link);
+
+    expect(
+      screen.getByRole('heading', { name: /Home Page/i }),
+    ).toBeInTheDocument();
+  });
+});
+
+describe('<Footer>', () => {
+  test('"Footer Logo" links to correct url', () => {
+    setup();
+    const link = screen.getByRole('link', { name: /logo-footer/i });
     userEvent.click(link);
 
     expect(

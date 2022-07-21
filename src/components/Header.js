@@ -6,7 +6,7 @@ import logo from '../img/logo.svg';
 function Header() {
   return (
     <S.Header>
-      <S.LinkImg to="/" aria-label="logo">
+      <S.LinkImg to="/" aria-label="logo-header">
         <S.Img src={logo} alt="" />
       </S.LinkImg>
       <nav>
