@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './Homepage.style';
+import * as S from './Main.style';
 import table from '../img/table.png';
 
-function Homepage() {
+function Hero() {
   return (
     <S.Main>
       <S.H1>No reactions to your reddit posts?</S.H1>
@@ -21,4 +21,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Hero;
