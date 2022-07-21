@@ -23,7 +23,7 @@ describe('Header', () => {
     userEvent.click(link);
 
     expect(
-      screen.getByRole('heading', { name: /Home Page/i }),
+      screen.getByRole('heading', { name: /No reactions to your reddit posts/i }),
     ).toBeInTheDocument();
   });
 });
@@ -36,7 +36,7 @@ describe('<Footer>', () => {
     userEvent.click(link);
 
     expect(
-      screen.getByRole('heading', { name: /Home Page/i }),
+      screen.getByRole('heading', { name: /No reactions to your reddit posts/i }),
     ).toBeInTheDocument();
   });
 });
