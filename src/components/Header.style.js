@@ -3,11 +3,14 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   display: flex;
-  padding: 1.725em 4.5em 2em 4.7em;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin-left: 5em;
+  margin-right: 5em;
 `;
 
 export const LinkImg = styled(UnstyledLink)`
-    margin-right: auto;
 `;
 
 export const Link = styled(UnstyledLink)`
@@ -22,7 +25,7 @@ export const Ul = styled.ul`
   display: flex;
   align-items: center;
   height: 100%;
-  gap: 1.35em;
+  gap: 1.6em;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -35,5 +38,5 @@ export const Li = styled.li`
 
 export const Img = styled.img`
   width: 9.375rem;
-  display: block;
+  display: inline-block;
 `;

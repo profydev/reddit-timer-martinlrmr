@@ -12,13 +12,14 @@ export const Main = styled.main`
 export const H1 = styled.h1`
   font-family: ${(props) => props.theme.font.family.headline};
   font-weight: 400;
-  font-size: 2.375;
-  
+  font-size: 2.375rem;
+  color: ${(props) => props.theme.color.dark};
+  margin-top: 0.5em;
   margin-bottom: 0;
 `;
 
 export const Subtitle = styled.p`
-  margin-top: 1.25rem;
+  margin-top: 0.4em;
 `;
 
 export const Button = styled.button`
@@ -30,12 +31,16 @@ export const Button = styled.button`
   color: ${(props) => props.theme.color.light};
   background-color: #FDB755;
   cursor: pointer;
+  margin-top: 1.85em;
+  border: none;
 `;
 
 export const SubredditTitle = styled.p`
   font-weight: 500;
+  margin-top: 2.7em;
 `;
 
 export const TableImage = styled.img`
   width: 100%;
+  margin-top: 1em;
 `;

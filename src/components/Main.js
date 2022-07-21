@@ -11,9 +11,7 @@ function Hero() {
         Great timing, great results! Find the best time to post on your subreddit.
       </S.Subtitle>
       <Link to="/search/javascript">
-        <S.Button>
-          SHOW ME THE BEST TIME
-        </S.Button>
+        <S.Button>SHOW ME THE BEST TIME</S.Button>
       </Link>
       <S.SubredditTitle>r/javascript</S.SubredditTitle>
       <Link to="/search/javascript">
