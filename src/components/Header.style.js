@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   display: flex;
+  ${(props) => props.theme.size.headerHeight};
   padding: 1.725em 4.5em 2em 4.7em;
 `;
 
