@@ -14,7 +14,6 @@ function setup() {
 
 test('renders App', () => {
   setup();
-  screen.debug();
 });
 
 describe('Header', () => {
@@ -24,7 +23,7 @@ describe('Header', () => {
     userEvent.click(link);
 
     expect(
-      screen.getByRole('heading', { name: /Home Page/i })
+      screen.getByRole('heading', { name: /Home Page/i }),
     ).toBeInTheDocument();
   });
 });
