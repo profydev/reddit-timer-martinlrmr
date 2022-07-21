@@ -8,6 +8,10 @@ function Hero() {
       <S.Subtitle>
         Great timing, great results! Find the best time to post on your subreddit.
       </S.Subtitle>
+      <S.Button>
+        SHOW ME THE BEST TIME
+      </S.Button>
+      <S.SubredditTitle>r/javascript</S.SubredditTitle>
     </S.Main>
   );
 }
