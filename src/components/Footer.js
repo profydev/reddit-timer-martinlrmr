@@ -8,7 +8,7 @@ function Footer() {
       <S.Link as="a" href="https://profy.dev/employers" target="_blank" rel="noreferrer">
         profy.dev
       </S.Link>
-      <S.Link to="/" aria-label="logo-footer">
+      <S.Link to="/" aria-label="logo-footer.svg">
         <S.Img src={logoFooter} />
       </S.Link>
       <S.Link to="/terms">
