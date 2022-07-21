@@ -3,16 +3,12 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   height: ${(props) => props.theme.size.headerHeight};
-  padding: 0 5em 0 5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
   margin-left: 5em;
   margin-right: 5em;
-`;
-
-export const LinkImg = styled(UnstyledLink)`
 `;
 
 export const Link = styled(UnstyledLink)`

@@ -1,14 +1,14 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as S from './Header.style';
 import logo from '../img/logo.svg';
 
 function Header() {
   return (
     <S.Header>
-      <S.LinkImg to="/" aria-label="logo-header">
+      <Link to="/" aria-label="logo-header">
         <S.Img src={logo} alt="" />
-      </S.LinkImg>
+      </Link>
       <nav>
         <S.Ul>
           <li><S.Link to="/search/javascript">Search</S.Link></li>
