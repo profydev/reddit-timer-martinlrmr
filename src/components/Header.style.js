@@ -2,6 +2,8 @@ import { Link as UnstyledLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  height: ${(props) => props.theme.size.headerHeight};
+  padding: 0 5em 0 5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,11 +31,6 @@ export const Ul = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
-
-`;
-
-export const Li = styled.li`
-  color: red;
 `;
 
 export const Img = styled.img`
