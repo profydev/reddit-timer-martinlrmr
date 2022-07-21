@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Footer = styled.footer`
   width: 100%;
   max-width: 980px;
+  height: ${(props) => props.theme.size.footerHeight};
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
