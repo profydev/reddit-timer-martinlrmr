@@ -8,9 +8,12 @@ function Footer() {
       <S.A href="https://profy.dev/employers" target="_blank" rel="noreferrer">
         profy.dev
       </S.A>
-      <S.LinkImg to="/" aria-label="logo-footer">
+      <S.Link to="/" aria-label="logo-footer">
         <S.Img src={logoFooter} />
-      </S.LinkImg>
+      </S.Link>
+      <S.Link to="/terms">
+        Terms & Privacy
+      </S.Link>
     </S.Footer>
   );
 }
