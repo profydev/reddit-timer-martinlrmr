@@ -5,6 +5,7 @@ import { Normalize } from 'styled-normalize';
 import GlobalStyles from './style/globalStyles';
 import theme from './style/theme';
 import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Normalize />
         <GlobalStyles />
         <Header />
+        <Main />
         <Routes>
           <Route path="/search" element={<h1>Search</h1>} />
           <Route path="/" element={<h1>Home Page</h1>} />
