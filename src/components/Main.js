@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './Main.style';
+import table from '../img/table.png';
 
 function Hero() {
   return (
@@ -12,6 +13,7 @@ function Hero() {
         SHOW ME THE BEST TIME
       </S.Button>
       <S.SubredditTitle>r/javascript</S.SubredditTitle>
+      <S.TableImage src={table} alt="" />
     </S.Main>
   );
 }

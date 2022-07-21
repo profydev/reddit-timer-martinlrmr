@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Main = styled.main`
   height: 100%;
+  margin: 0 163px 0 163px;
   font-family: ${(props) => props.theme.font.family.default};
   line-height: ${(props) => props.theme.font.lineHeight.default};
   color: ${(props) => props.theme.color.text};
@@ -32,4 +33,8 @@ export const Button = styled.button`
 
 export const SubredditTitle = styled.p`
   font-weight: 500;
+`;
+
+export const TableImage = styled.img`
+  width: 100%;
 `;
