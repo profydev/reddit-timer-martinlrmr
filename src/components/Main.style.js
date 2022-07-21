@@ -29,6 +29,7 @@ export const Button = styled.button`
   border-radius: 4px;
   color: ${(props) => props.theme.color.light};
   background-color: #FDB755;
+  cursor: pointer;
 `;
 
 export const SubredditTitle = styled.p`

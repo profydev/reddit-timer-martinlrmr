@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './Main.style';
 import table from '../img/table.png';
 
@@ -9,11 +10,15 @@ function Hero() {
       <S.Subtitle>
         Great timing, great results! Find the best time to post on your subreddit.
       </S.Subtitle>
-      <S.Button>
-        SHOW ME THE BEST TIME
-      </S.Button>
+      <Link to="/search/javascript">
+        <S.Button>
+          SHOW ME THE BEST TIME
+        </S.Button>
+      </Link>
       <S.SubredditTitle>r/javascript</S.SubredditTitle>
-      <S.TableImage src={table} alt="" />
+      <Link to="/search/javascript">
+        <S.TableImage src={table} alt="" />
+      </Link>
     </S.Main>
   );
 }
