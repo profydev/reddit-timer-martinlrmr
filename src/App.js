@@ -7,6 +7,7 @@ import theme from './style/theme';
 import * as S from './App.style';
 
 import Header from './components/Header';
+import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <S.ContentContainer>
           <Routes>
             <Route path="/search" element={<h1>Search</h1>} />
-            <Route path="/" element={<h1>Home Page</h1>} />
+            <Route path="/" element={<Homepage />} />
           </Routes>
         </S.ContentContainer>
         <Footer />
