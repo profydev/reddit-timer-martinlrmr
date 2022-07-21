@@ -6,7 +6,6 @@ import App from './App';
 
 ReactDOM.render(
   <Router>
-    <Normalize />
     <App />
   </Router>,
   document.getElementById('root'),
