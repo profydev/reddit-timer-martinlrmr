@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../app';
+import App from '../App';
 
 const setup = (initialPath = '/') => render(
   <MemoryRouter initialEntries={[initialPath]}>
