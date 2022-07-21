@@ -19,7 +19,7 @@ test('renders App', () => {
 describe('Header', () => {
   test('"Logo" links to correct url', () => {
     setup();
-    const link = screen.getByRole('link', { name: /logo/i });
+    const link = screen.getByRole('link', { name: /logo-header/i });
     userEvent.click(link);
 
     expect(
