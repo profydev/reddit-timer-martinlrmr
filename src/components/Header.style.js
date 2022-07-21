@@ -2,13 +2,14 @@ import { Link as UnstyledLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  height: ${(props) => props.theme.size.headerHeight};
+  padding: 0 5em 0 5em;
   display: flex;
-  ${(props) => props.theme.size.headerHeight};
-  padding: 1.725em 4.5em 2em 4.7em;
+  align-items: center;
 `;
 
 export const LinkImg = styled(UnstyledLink)`
-    margin-right: auto;
+  margin-right: auto;
 `;
 
 export const Link = styled(UnstyledLink)`
@@ -22,16 +23,8 @@ export const Link = styled(UnstyledLink)`
 export const Ul = styled.ul`
   display: flex;
   align-items: center;
-  height: 100%;
-  gap: 1.35em;
-  margin: 0;
-  padding: 0;
+  gap: 1.6em;
   list-style: none;
-
-`;
-
-export const Li = styled.li`
-  color: red;
 `;
 
 export const Img = styled.img`
