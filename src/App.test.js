@@ -32,6 +32,7 @@ describe('<Footer>', () => {
   test('"Footer Logo" links to correct url', () => {
     setup();
     const link = screen.getByRole('link', { name: /logo-footer/i });
+
     userEvent.click(link);
 
     expect(
