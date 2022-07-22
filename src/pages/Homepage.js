@@ -27,15 +27,15 @@ function Homepage({ subreddit }) {
           <li>See immediately when to submit your reddit post.</li>
         </S.Ul>
       </S.Article>
-      
+
       <S.Article>
         <S.H2 id="about">About</S.H2>
         <S.P>
           This app was created during a course on
-          <S.SectionA href="https://profy.dev" target="_blank" rel="noreferrer"> profy.dev </S.SectionA>
+          <S.ArticleLinK href="https://profy.dev" target="_blank" rel="noreferrer"> profy.dev </S.ArticleLinK>
           with the goal to implement a pixel-perfect real-world application with professional
           workflows and tools like Kanban, Asana, Zeplin, GitHub, pull requests and code reviews.
-          <S.SectionA href="https://profy.dev/employers" target="_blank" rel="noreferrer">Click here for more information.</S.SectionA>
+          <S.ArticleLinK href="https://profy.dev/employers" target="_blank" rel="noreferrer">Click here for more information.</S.ArticleLinK>
         </S.P>
       </S.Article>
     </S.Container>

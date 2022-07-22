@@ -64,7 +64,7 @@ export const P = styled.p`
   margin-top: 0.5em;
 `;
 
-export const SectionA = styled.a`
+export const ArticleLinK = styled.a`
   text-decoration: none;
   color: #0087FF; 
 `;
