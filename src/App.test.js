@@ -47,7 +47,7 @@ describe('Footer', () => {
     userEvent.click(link);
 
     expect(link).toHaveAttribute('href', 'https://profy.dev/employers');
-    });
+  });
 });
 
 describe('Homepage', () => {
