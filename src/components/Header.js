@@ -12,8 +12,8 @@ function Header() {
       <nav>
         <S.Ul>
           <li><S.Link to="/search/javascript">Search</S.Link></li>
-          <li><S.Link to="/#how-it-works">How it works</S.Link></li>
-          <li><S.Link to="/#about">About</S.Link></li>
+          <li><S.HashLink smooth to="/#how-it-works">How it works</S.HashLink></li>
+          <li><S.HashLink smooth to="/#about">About</S.HashLink></li>
         </S.Ul>
       </nav>
     </S.Header>
