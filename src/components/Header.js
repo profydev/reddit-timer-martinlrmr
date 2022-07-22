@@ -13,8 +13,8 @@ function Header({ subreddit }) {
       <nav>
         <S.Ul>
           <li><S.Link to={`/search/${subreddit}`}>Search</S.Link></li>
-          <li><S.HashLink smooth to="/#how-it-works">How it works</S.HashLink></li>
-          <li><S.HashLink smooth to="/#about">About</S.HashLink></li>
+          <li><S.HashLink to="/#how-it-works">How it works</S.HashLink></li>
+          <li><S.HashLink to="/#about">About</S.HashLink></li>
         </S.Ul>
       </nav>
     </S.Header>
