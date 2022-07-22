@@ -10,6 +10,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     height: 100vh;
   }
+
+  h2 {
+    font-family: 'Bitter';
+    font-weight: 400;
+    font-size: 24px;
+    color ${(props) => props.theme.color.dark};
+  }
 `;
 
 export default GlobalStyle;

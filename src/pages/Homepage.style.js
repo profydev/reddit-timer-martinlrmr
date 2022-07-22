@@ -43,4 +43,32 @@ export const SubredditTitle = styled.p`
 export const TableImage = styled.img`
   width: 100%;
   margin-top: 1em;
+  margin-bottom: 1.5em;
+`;
+
+export const Section = styled.section`
+  max-width: 778px;
+  margin: 0 auto;
+  margin-top: 6.1em;
+  padding: 0 20px;
+  text-align: left;
+
+  &:last-of-type {
+    margin-bottom: 6em;
+  }
+`;
+
+export const H2 = styled.h2`
+  margin-bottom: 0.2em;
+`;
+
+export const Ul = styled.ul`
+  font-family: ${(props) => props.theme.font.family.default};
+  margin-top: 0;
+  padding-left: 0.85em;
+  list-style-type: '\b7';
+`;
+
+export const P = styled.p`
+  margin-top: 0.5em;
 `;

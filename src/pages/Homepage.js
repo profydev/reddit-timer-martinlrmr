@@ -17,6 +17,23 @@ function Homepage() {
       <Link to="/search/javascript">
         <S.TableImage src={table} alt="" />
       </Link>
+      <S.Section>
+        <S.H2>How it works</S.H2>
+        <S.Ul>
+          <li>We find the 500 top posts from the past year for a subreddit.</li>
+          <li>The data is visualized in a heatmap grouped by weekday and hour of the day.</li>
+          <li>See immediately when to submit your reddit post.</li>
+        </S.Ul>
+      </S.Section>
+      <S.Section>
+        <S.H2>About</S.H2>
+        <S.P>
+          This app was created during a course on profy.dev with the goal to implement a
+          pixel-perfect real-world application with professional workflows and tools like
+          Kanban, Asana, Zeplin, GitHub, pull requests and code reviews. Click here for
+          more information.
+        </S.P>
+      </S.Section>
     </S.Main>
   );
 }
