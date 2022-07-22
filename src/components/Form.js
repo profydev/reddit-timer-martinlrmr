@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import * as S from './Form.style';
 
 function Form({ subreddit }) {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState('javascript');
   const navigate = useNavigate();
 
   const handleChange = (event) => {
