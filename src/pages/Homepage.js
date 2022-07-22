@@ -28,10 +28,11 @@ function Homepage() {
       <S.Section>
         <S.H2>About</S.H2>
         <S.P>
-          This app was created during a course on profy.dev with the goal to implement a
-          pixel-perfect real-world application with professional workflows and tools like
-          Kanban, Asana, Zeplin, GitHub, pull requests and code reviews. Click here for
-          more information.
+          This app was created during a course on
+          <S.SectionA href="https://profy.dev" target="_blank" rel="noreferrer"> profy.dev </S.SectionA>
+          with the goal to implement a pixel-perfect real-world application with professional
+          workflows and tools like Kanban, Asana, Zeplin, GitHub, pull requests and code reviews.
+          <S.SectionA href="https://profy.dev/employers" target="_blank" rel="noreferrer">Click here for more information.</S.SectionA>
         </S.P>
       </S.Section>
     </S.Main>

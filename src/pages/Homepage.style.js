@@ -66,9 +66,13 @@ export const Ul = styled.ul`
   font-family: ${(props) => props.theme.font.family.default};
   margin-top: 0;
   padding-left: 0.85em;
-  list-style-type: '\b7';
 `;
 
 export const P = styled.p`
   margin-top: 0.5em;
+`;
+
+export const SectionA = styled.a`
+  text-decoration: none;
+  color: #0087FF; 
 `;
