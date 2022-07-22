@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import {within} from '@testing-library/dom'
+import { within } from '@testing-library/dom';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import App from './App';
@@ -34,12 +34,12 @@ describe('Footer', () => {
     setup();
     const link = screen.getByRole('link', { name: /logo-footer/i });
     userEvent.click(link);
-    
+
     expect(
       screen.getByRole('heading', { name: /No reactions to your reddit posts/i }),
-      ).toBeInTheDocument();
-    });
-    
+    ).toBeInTheDocument();
+  });
+
   test('"profy.dev" links to the correct external url', () => {
     setup();
     const footer = screen.getByRole('contentinfo');
@@ -47,7 +47,7 @@ describe('Footer', () => {
     userEvent.click(link);
 
     expect(link).toHaveAttribute('href', 'https://profy.dev/employers');
-    })
+    });
 });
 
 describe('Homepage', () => {
@@ -58,7 +58,7 @@ describe('Homepage', () => {
     userEvent.click(link);
 
     expect(link).toHaveAttribute('href', 'https://profy.dev');
-  })
+  });
 
   test('"Click here for more information" links to the correct external url', () => {
     setup();
@@ -67,6 +67,5 @@ describe('Homepage', () => {
     userEvent.click(link);
 
     expect(link).toHaveAttribute('href', 'https://profy.dev/employers');
-  })
-
+  });
 });
