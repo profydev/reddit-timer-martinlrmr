@@ -6,7 +6,6 @@ export const Container = styled.div`
   line-height: ${(props) => props.theme.font.lineHeight.default};
   color: ${(props) => props.theme.color.text};
   text-align: center;
-  border: solid 1px red;
 `;
 
 export const H1 = styled.h1`
