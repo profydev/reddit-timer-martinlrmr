@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import * as S from './Header.style';
 import logo from '../img/logo.svg';
 
-function Header({ subreddit }) {
+function Header({ changeSubreddit }) {
   return (
     <S.Header>
       <Link to="/" aria-label="logo-header">
@@ -12,7 +12,7 @@ function Header({ subreddit }) {
       </Link>
       <nav>
         <S.Ul>
-          <li><S.Link to={`/search/${subreddit}`}>Search</S.Link></li>
+          <li><S.Link to="/search/javascript" onClick={() => changeSubreddit('javascript')} reloadDocument>Search</S.Link></li>
           <li><S.HashLink to="/#how-it-works">How it works</S.HashLink></li>
           <li><S.HashLink to="/#about">About</S.HashLink></li>
         </S.Ul>
@@ -22,11 +22,11 @@ function Header({ subreddit }) {
 }
 
 Header.propTypes = {
-  subreddit: PropTypes.string,
+  changeSubreddit: PropTypes.func,
 };
 
 Header.defaultProps = {
-  subreddit: '',
+  changeSubreddit: () => {},
 };
 
 export default Header;

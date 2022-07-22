@@ -14,7 +14,7 @@ function Homepage({ subreddit }) {
       <Link to={`/search/${subreddit}`}>
         <S.Button>SHOW ME THE BEST TIME</S.Button>
       </Link>
-      <S.SubredditTitle>{`r${subreddit}`}</S.SubredditTitle>
+      <S.SubredditTitle>{`r/${subreddit}`}</S.SubredditTitle>
       <Link to={`/search/${subreddit}`}>
         <S.TableImage src={table} alt="" />
       </Link>

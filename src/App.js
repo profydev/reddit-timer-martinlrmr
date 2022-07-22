@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
@@ -12,17 +12,21 @@ import Homepage from './pages/Homepage';
 import Search from './pages/Search';
 
 function App() {
-  const subreddit = 'javascript';
+  const [subreddit, setSubreddit] = useState('javascript');
+
+  const changeSubreddit = (userInput) => {
+    setSubreddit(userInput);
+  };
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <Normalize />
         <GlobalStyles />
-        <Header subreddit={subreddit} />
+        <Header changeSubreddit={changeSubreddit} />
         <S.ContentContainer>
           <Routes>
-            <Route path={`/search/${subreddit}`} element={<Search subreddit={subreddit} />} />
+            <Route path="/search/javascript" element={<Search subreddit={subreddit} changeSubreddit={changeSubreddit} />} />
             <Route path="/" element={<Homepage subreddit={subreddit} />} />
           </Routes>
         </S.ContentContainer>
