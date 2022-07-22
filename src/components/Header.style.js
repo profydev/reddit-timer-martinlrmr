@@ -13,11 +13,7 @@ export const Header = styled.header`
 `;
 
 export const Link = styled(UnstyledLink)`
-  font-family: 'Montserrat';
   font-size: 1rem;
-  color: ${(props) => props.theme.color.midDark};
-  text-decoration: none;
-  cursor: pointer;
 `;
 
 export const HashLink = styled(UnstyledHashLink)`
