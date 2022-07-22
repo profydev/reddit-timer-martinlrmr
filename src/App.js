@@ -7,8 +7,9 @@ import theme from './style/theme';
 import * as S from './App.style';
 
 import Header from './components/Header';
-import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
+import Homepage from './pages/Homepage';
+import Search from './pages/Search';
 
 function App() {
   const subreddit = 'javascript';
@@ -21,7 +22,7 @@ function App() {
         <Header subreddit={subreddit} />
         <S.ContentContainer>
           <Routes>
-            <Route path="/search" element={<h1>Search</h1>} />
+            <Route path={`/search/${subreddit}`} element={<Search />} />
             <Route path="/" element={<Homepage subreddit={subreddit} />} />
           </Routes>
         </S.ContentContainer>

@@ -6,7 +6,7 @@ import table from '../img/table.png';
 
 function Homepage({ subreddit }) {
   return (
-    <S.Main>
+    <S.Container>
       <S.H1>No reactions to your reddit posts?</S.H1>
       <S.Subtitle>
         Great timing, great results! Find the best time to post on your subreddit.
@@ -18,7 +18,7 @@ function Homepage({ subreddit }) {
       <Link to={`/search/${subreddit}`}>
         <S.TableImage src={table} alt="" />
       </Link>
-    </S.Main>
+    </S.Container>
   );
 }
 
