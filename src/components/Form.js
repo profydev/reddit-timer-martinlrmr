@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as S from './Form.style';
 
-function Form({ changeSubreddit }) {
+function Form({ subreddit }) {
   const [inputText, setInputText] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setInputText(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    changeSubreddit(inputText);
+  const handleSubmit = () => {
+    navigate(`/search/${inputText}`);
   };
 
   return (
@@ -23,6 +24,7 @@ function Form({ changeSubreddit }) {
         type="text"
         id="input"
         value={inputText}
+        placeholder={subreddit}
         onChange={handleChange}
       />
       <S.Button type="submit">SEARCH</S.Button>
@@ -31,11 +33,10 @@ function Form({ changeSubreddit }) {
 }
 
 Form.propTypes = {
-  changeSubreddit: PropTypes.func,
+  subreddit: PropTypes.string,
 };
 
 Form.defaultProps = {
-  changeSubreddit: () => {},
+  subreddit: '',
 };
-
 export default Form;

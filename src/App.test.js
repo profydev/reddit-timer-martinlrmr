@@ -27,6 +27,14 @@ describe('Header', () => {
       screen.getByRole('heading', { name: /No reactions to your reddit posts/i }),
     ).toBeInTheDocument();
   });
+
+  test('"Search" link routes to correct url', () => {
+    setup();
+    const link = screen.getByRole('link', { name: /Search/i });
+    userEvent.click(link);
+
+    expect(link).toHaveAttribute('href', '/search/javascript');
+  });
 });
 
 describe('Footer', () => {
