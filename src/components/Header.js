@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as S from './Header.style';
 import logo from '../img/logo.svg';
 
-function Header() {
+function Header({ subreddit }) {
   return (
     <S.Header>
       <Link to="/" aria-label="logo-header">
@@ -11,7 +12,7 @@ function Header() {
       </Link>
       <nav>
         <S.Ul>
-          <li><S.Link to="/search/javascript">Search</S.Link></li>
+          <li><S.Link to={`/search/${subreddit}`}>Search</S.Link></li>
           <li><S.Link to="/#how-it-works">How it works</S.Link></li>
           <li><S.Link to="/#about">About</S.Link></li>
         </S.Ul>
@@ -19,5 +20,13 @@ function Header() {
     </S.Header>
   );
 }
+
+Header.propTypes = {
+  subreddit: PropTypes.string,
+};
+
+Header.defaultProps = {
+  subreddit: '',
+};
 
 export default Header;

@@ -12,11 +12,7 @@ export const Footer = styled.footer`
 `;
 
 export const Link = styled(UnstyledLink)`
-  font-family: 'Montserrat';
   font-size: 0.875rem;
-  color: ${(props) => props.theme.color.midDark};
-  text-decoration: none;
-  cursor: pointer;
   flex: 1;
 
   &:last-of-type {
