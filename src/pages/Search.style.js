@@ -15,5 +15,5 @@ export const H1 = styled.h1`
   font-size: 2.375rem;
   color: ${(props) => props.theme.color.dark};
   margin-top: 0.5em;
-  margin-bottom: 0;
+  margin-bottom: 0.45em;
 `;

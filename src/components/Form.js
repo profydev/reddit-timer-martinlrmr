@@ -8,6 +8,7 @@ function Form() {
         r/
       </S.Label>
       <S.Input type="text" id="a" />
+      <S.Button>SEARCH</S.Button>
     </S.Form>
   );
 }
