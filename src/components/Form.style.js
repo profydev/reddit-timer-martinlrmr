@@ -16,26 +16,18 @@ export const Input = styled.input`
   max-width: 26.428em;
   width: 100%;
   height: 2.57em;
-  margin-right: 0.8em;
-  margin-left: 0.8em;
+  margin-right: 10px;
+  margin-left: 10px;
   padding-left: 1.14em;
-  border: 1px solid #E6E6E6;
-  border-radius: 2px;
+  // conditional styling for error/ no-input
+  border: ${(props) => (props.errorStyling ? '1px solid #ff726f'
+    : '1px solid #E6E6E6')};
+  border-radius: 4px;
 `;
 
-export const Button = styled.button`
-  font-family: ${(props) => props.theme.font.family.default};
-  font-weight: 500;
+export const Error = styled.p`
+  color: #ff726f;
   font-size: 14px;
-  height: 2.57em;
-  padding-left: 1.14em;
-  padding-right: 1.14em;
-  border: none;
-  border-radius: 4px;
-  color: ${(props) => props.theme.color.light};
-  background-color: #FDB755;
-
-  &:hover, :focus {
-    background-color: #FEA62E;
-  }
+  margin-top: 0em;
+  margin-right: 4.5em;
 `;

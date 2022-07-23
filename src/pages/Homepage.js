@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as S from './Homepage.style';
 import table from '../img/table.png';
+import Button from '../components/Button';
 
 function Homepage({ defaultSubreddit }) {
   return (
@@ -12,7 +13,7 @@ function Homepage({ defaultSubreddit }) {
         Great timing, great results! Find the best time to post on your subreddit.
       </S.Subtitle>
       <Link to={`/search/${defaultSubreddit}`}>
-        <S.Button>SHOW ME THE BEST TIME</S.Button>
+        <Button type="button">SHOW ME THE BEST TIME</Button>
       </Link>
       <S.SubredditTitle>{`r/${defaultSubreddit}`}</S.SubredditTitle>
       <Link to={`/search/${defaultSubreddit}`}>

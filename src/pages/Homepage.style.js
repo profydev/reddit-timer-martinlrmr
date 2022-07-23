@@ -17,15 +17,7 @@ export const H1 = styled.h1`
 
 export const Subtitle = styled.p`
   margin-top: 0.4em;
-`;
-
-export const Button = styled.button`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 9px;
-  padding: 0.96em 1.07em 0.96em 1.07em;
-  border-radius: 4px;
-  margin-top: 1.85em;
+  margin-bottom: 2.6em;
 `;
 
 export const SubredditTitle = styled.p`
