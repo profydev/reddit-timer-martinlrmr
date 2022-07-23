@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as S from './Homepage.style';
 import table from '../img/table.png';
+import LoadData from '../components/LoadData';
 
 function Homepage({ subreddit }) {
   return (
@@ -36,6 +37,7 @@ function Homepage({ subreddit }) {
           <S.SectionA href="https://profy.dev/employers" target="_blank" rel="noreferrer">Click here for more information.</S.SectionA>
         </S.P>
       </S.Article>
+      <LoadData />
     </S.Div>
   );
 }
