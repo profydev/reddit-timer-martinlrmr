@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import HeroSection from '../components/HeroSection';
 import InfoSection from '../components/InfoSection';
 
-function Homepage({ subreddit }) {
+function Homepage({ defaultSubreddit }) {
   return (
     <>
-      <HeroSection subreddit={subreddit} />
+      <HeroSection defaultSubreddit={defaultSubreddit} />
       <InfoSection />
     </>
   );
 }
 
 Homepage.propTypes = {
-  subreddit: PropTypes.string,
+  defaultSubreddit: PropTypes.string,
 };
 
 Homepage.defaultProps = {
-  subreddit: '',
+  defaultSubreddit: '',
 };
 
 export default Homepage;
