@@ -25,7 +25,7 @@ function App() {
         <Header defaultSubreddit={defaultSubreddit} />
         <S.ContentContainer>
           <Routes>
-            <Route path="/search/:search" element={<Search key={new Date().getTime()} />} />
+            <Route path="/search/:subredditParameter" element={<Search key={new Date().getTime()} />} />
             <Route path="/" element={<Homepage defaultSubreddit={defaultSubreddit} />} />
           </Routes>
         </S.ContentContainer>

@@ -4,18 +4,20 @@ import * as S from './Form.style';
 
 function Form() {
   const navigate = useNavigate();
-  const { search } = useParams();
-  const [userinput, setUserinput] = useState(search);
+  const { subredditParameter } = useParams();
+  const [subreddit, setSubreddit] = useState('');
 
-  useEffect(() => { setUserinput(search); }, [search]);
+  useEffect(() => {
+    setSubreddit(subredditParameter);
+  }, [subredditParameter]);
 
   const handleChange = (event) => {
-    setUserinput(event.target.value);
+    setSubreddit(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(`/search/${userinput}`);
+    navigate(`/search/${subreddit}`);
   };
 
   return (
@@ -25,8 +27,8 @@ function Form() {
       </S.Label>
       <S.Input
         type="text"
-        id="userinput"
-        value={userinput}
+        name="subreddit"
+        value={subreddit}
         onChange={handleChange}
       />
       <S.Button type="submit">SEARCH</S.Button>
