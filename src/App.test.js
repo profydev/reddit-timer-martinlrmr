@@ -50,7 +50,7 @@ describe('Footer', () => {
   });
 });
 
-describe('Homepage', () => {
+describe('Info Sectioni', () => {
   test('"profy.dev" links to the correct external url', () => {
     setup();
     const main = screen.getByRole('main');
