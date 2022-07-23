@@ -5,20 +5,47 @@ import * as S from './Form.style';
 import Button from './Button';
 
 function Form() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
   const { subredditParameter } = useParams();
   const [subreddit, setSubreddit] = useState('');
+  const [noResults, setNoResult] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+  const [topRedditPosts, setTopRedditPosts] = useState([]);
 
   useEffect(() => {
+    const baseUrl = `https://www.reddit.com/r/${subredditParameter}/top.json?t=year&limit=100`;
+    let accumulator = [];
+
+    setNoResult(false);
+    setTopRedditPosts('');
+    setLoading(true);
     setSubreddit(subredditParameter);
+
+    function fetchTopRedditPosts(url) {
+      fetch(url)
+        .then((response) => response.json())
+        .then((redditResponse) => {
+          accumulator = accumulator.concat(redditResponse.data.children);
+          if (accumulator.length < 500) {
+            const nextUrlQuery = `${baseUrl}&after=${redditResponse.data.after}`;
+            fetchTopRedditPosts(nextUrlQuery);
+          } else {
+            setTopRedditPosts(accumulator);
+            setLoading(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setNoResult(true);
+          setLoading(false);
+        });
+    }
+    fetchTopRedditPosts(baseUrl);
   }, [subredditParameter]);
 
+  console.log(topRedditPosts);
   const handleChange = (event) => {
     setSubreddit(event.target.value);
   };
@@ -29,25 +56,23 @@ function Form() {
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.Label htmlFor="input">
-        r/
-      </S.Label>
+      <S.Label htmlFor="input">r/</S.Label>
       <S.Input
         type="text"
         name="subreddit"
         value={subreddit}
         onChange={handleChange}
+        errorStyling={errors.subreddit || noResults}
         /* eslint-disable react/jsx-props-no-spreading */
         {...register('subreddit', {
           required: true,
           onChange: (e) => handleChange(e),
         })}
-        errorStyling={errors.subreddit}
       />
       <Button type="submit">SEARCH</Button>
-      {errors.subreddit && <S.Error>enter text to search</S.Error>}
+      {isLoading && <S.Spinner />}
+      {noResults && <S.Error>No subreddits with that name try another</S.Error>}
     </S.Form>
   );
 }
-
 export default Form;
