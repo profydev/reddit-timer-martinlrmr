@@ -15,6 +15,7 @@ function setup() {
 
 test('renders App', () => {
   setup();
+  screen.debug();
 });
 
 describe('Header', () => {

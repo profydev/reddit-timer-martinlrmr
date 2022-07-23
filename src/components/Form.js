@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './Form.style';
 
-function Form({ changeSubreddit, subreddit }) {
-  const [inputText, setInputText] = useState('javascript');
+function Form() {
   const navigate = useNavigate();
+  const { search } = useParams();
+  const [userinput, setUserinput] = useState(search);
+
+  useEffect(() => { setUserinput(search); }, [search]);
 
   const handleChange = (event) => {
-    setInputText(event.target.value);
+    setUserinput(event.target.value);
   };
 
-  const handleSubmit = () => {
-    navigate(`/search/${inputText}`);
-    changeSubreddit(inputText);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/search/${userinput}`);
   };
 
   return (
@@ -23,24 +25,13 @@ function Form({ changeSubreddit, subreddit }) {
       </S.Label>
       <S.Input
         type="text"
-        id="input"
-        value={inputText}
+        id="userinput"
+        value={userinput}
         onChange={handleChange}
       />
       <S.Button type="submit">SEARCH</S.Button>
-      <p>{subreddit}</p>
     </S.Form>
   );
 }
-
-Form.propTypes = {
-  subreddit: PropTypes.string,
-  changeSubreddit: PropTypes.func,
-};
-
-Form.defaultProps = {
-  subreddit: '',
-  changeSubreddit: () => {},
-};
 
 export default Form;

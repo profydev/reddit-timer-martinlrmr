@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import * as S from './Homepage.style';
 import table from '../img/table.png';
 
-function Homepage({ subreddit }) {
+function Homepage({ defaultSubreddit }) {
   return (
     <S.Container>
       <S.H1>No reactions to your reddit posts?</S.H1>
       <S.Subtitle>
         Great timing, great results! Find the best time to post on your subreddit.
       </S.Subtitle>
-      <Link to={`/search/${subreddit}`}>
+      <Link to={`/search/${defaultSubreddit}`}>
         <S.Button>SHOW ME THE BEST TIME</S.Button>
       </Link>
-      <S.SubredditTitle>{`r/${subreddit}`}</S.SubredditTitle>
-      <Link to={`/search/${subreddit}`}>
+      <S.SubredditTitle>{`r/${defaultSubreddit}`}</S.SubredditTitle>
+      <Link to={`/search/${defaultSubreddit}`}>
         <S.TableImage src={table} alt="" />
       </Link>
 
@@ -43,11 +43,11 @@ function Homepage({ subreddit }) {
 }
 
 Homepage.propTypes = {
-  subreddit: PropTypes.string,
+  defaultSubreddit: PropTypes.string,
 };
 
 Homepage.defaultProps = {
-  subreddit: '',
+  defaultSubreddit: '',
 };
 
 export default Homepage;

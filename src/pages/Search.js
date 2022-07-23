@@ -3,23 +3,26 @@ import PropTypes from 'prop-types';
 import * as S from './Search.style';
 import Form from '../components/Form';
 
-function Search({ changeSubreddit, subreddit }) {
+function Search({ userinput, handleChange }) {
   return (
     <S.Container>
       <S.H1>Find the best time for a subreddit</S.H1>
-      <Form changeSubreddit={changeSubreddit} subreddit={subreddit} />
+      <Form
+        userinput={userinput}
+        handleChange={handleChange}
+      />
     </S.Container>
   );
 }
 
 Search.propTypes = {
-  subreddit: PropTypes.string,
-  changeSubreddit: PropTypes.func,
+  userinput: PropTypes.string,
+  handleChange: PropTypes.func,
 };
 
 Search.defaultProps = {
-  subreddit: '',
-  changeSubreddit: () => {},
+  userinput: '',
+  handleChange: () => {},
 };
 
 export default Search;
