@@ -15,6 +15,7 @@ function setup() {
 
 test('renders App', () => {
   setup();
+  screen.debug();
 });
 
 describe('Header', () => {
@@ -26,6 +27,14 @@ describe('Header', () => {
     expect(
       screen.getByRole('heading', { name: /No reactions to your reddit posts/i }),
     ).toBeInTheDocument();
+  });
+
+  test('"Search" link routes to correct url', () => {
+    setup();
+    const link = screen.getByRole('link', { name: /Search/i });
+    userEvent.click(link);
+
+    expect(link).toHaveAttribute('href', '/search/javascript');
   });
 });
 
@@ -50,7 +59,7 @@ describe('Footer', () => {
   });
 });
 
-describe('Homepage', () => {
+describe('Info Sectioni', () => {
   test('"profy.dev" links to the correct external url', () => {
     setup();
     const main = screen.getByRole('main');
