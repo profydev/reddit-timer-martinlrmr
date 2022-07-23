@@ -6,7 +6,7 @@ import InfoSection from '../components/InfoSection';
 function Homepage({ defaultSubreddit }) {
   return (
     <>
-      <HeroSection subreddit={subreddit} />
+      <HeroSection subreddit={defaultSubreddit} />
       <InfoSection />
     </>
   );
