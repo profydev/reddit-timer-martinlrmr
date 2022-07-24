@@ -12,7 +12,7 @@ function Form() {
   const [subreddit, setSubreddit] = useState('');
   const [noResults, setNoResult] = useState(false);
   const [isLoading, setLoading] = useState(true);
-  const [topRedditPosts, setTopRedditPosts] = useState([]);
+  const [topRedditPosts, setTopRedditPosts] = useState([]); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     const baseUrl = `https://www.reddit.com/r/${subredditParameter}/top.json?t=year&limit=100`;
@@ -37,15 +37,15 @@ function Form() {
           }
         })
         .catch((err) => {
-          console.log(err);
-          setNoResult(true);
-          setLoading(false);
+          if (err) {
+            setNoResult(true);
+            setLoading(false);
+          }
         });
     }
     fetchTopRedditPosts(baseUrl);
   }, [subredditParameter]);
 
-  console.log(topRedditPosts);
   const handleChange = (event) => {
     setSubreddit(event.target.value);
   };
