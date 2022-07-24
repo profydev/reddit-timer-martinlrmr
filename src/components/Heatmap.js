@@ -11,18 +11,22 @@ function Heatmap() {
     const redditPostsSeperatedByHour = hours.map((hour) => (
       redditPostsOfThisDay.filter((redditPost) => redditPost.hour === hour)
     ));
-
     return { ...dayAcc, [`day${weekday}`]: redditPostsSeperatedByHour };
   }, {});
-
-  console.log(sortedRedditPosts);
 
   function renderCells(redditPostsOfThisDay) {
     return redditPostsOfThisDay.map((hour) => {
       if (hour.length > 0) {
-        return <S.DataCell>{hour.length}</S.DataCell>;
+        return (
+          <S.DataCell
+            posts={hour.length}
+            key={`cell${hour[0].id}`}
+          >
+            {hour.length}
+          </S.DataCell>
+        );
       }
-      return <S.DataCell>0</S.DataCell>;
+      return <S.DataCell posts="0" key={hour.id}>0</S.DataCell>;
     });
   }
 

@@ -21,7 +21,7 @@ export const ColTitles = styled.th`
   border-top: 1px solid #F3F3F3;
 
   &:first-of-type {
-    background-color: ${(props) => props.theme.color.light};;
+    background-color: ${(props) => props.theme.color.light};
     border: none;
     border-right: 1px solid #F3F3F3;
   }
@@ -39,13 +39,36 @@ export const RowTitles = styled.td`
   background-color: #1E2537;
 `;
 
+/* eslint-disable no-nested-ternary */
+/* eslint-disable indent */
 export const DataCell = styled.td`
   background-color: green;
   font-weight: 700;
   font-size: 14px;
   color: ${(props) => props.theme.color.light};
-
+  background-color: ${(props) => (
+    props.posts > 9
+    ? '#3984a3'
+    : props.posts > 8
+    ? '#5aad8c'
+    : props.posts > 7
+    ? '#5cb391'
+    : props.posts > 6
+    ? '#5db492'
+    : props.posts > 5
+    ? '#5eb391'
+    : props.posts > 4
+    ? '#8cc894'
+    : props.posts > 3
+    ? '#99cd94'
+    : props.posts > 2
+    ? '#a0ce93'
+    : props.posts > 1
+    ? '#a9d194'
+    : props.posts > 0
+    ? '#aed396'
+    : '#e0e592'
+    )};
 `;
-
-export const A = styled.a`
-`;
+/* eslint-enable no-nested-ternary */
+/* eslint-enable indent */
