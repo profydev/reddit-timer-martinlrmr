@@ -4,11 +4,12 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-
+  
   body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    font-family: ${(props) => props.theme.font.family.default};
   }
 
   h1 {
@@ -19,14 +20,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-family: 'Bitter';
+    font-family: ${(props) => props.theme.font.family.headline};
     font-weight: 400;
     font-size: 24px;
     color: ${(props) => props.theme.color.dark};
   }
 
   a {
-    font-family: 'Montserrat';
+    font-family: ${(props) => props.theme.font.family.default};
     color: ${(props) => props.theme.color.midDark};
     text-decoration: none;
     cursor: pointer;
