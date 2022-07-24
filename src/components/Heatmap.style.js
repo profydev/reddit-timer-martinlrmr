@@ -42,9 +42,8 @@ export const RowTitles = styled.td`
 /* eslint-disable no-nested-ternary */
 /* eslint-disable indent */
 export const DataCell = styled.td`
-  background-color: green;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   color: ${(props) => props.theme.color.light};
   background-color: ${(props) => (
     props.posts > 9
@@ -69,6 +68,9 @@ export const DataCell = styled.td`
     ? '#aed396'
     : '#e0e592'
     )};
+  /* eslint-enable no-nested-ternary */
+  /* eslint-enable indent */
+  &:hover, :focus {
+    outline: solid 1px ${(props) => props.theme.color.dark};;
+  }
 `;
-/* eslint-enable no-nested-ternary */
-/* eslint-enable indent */
