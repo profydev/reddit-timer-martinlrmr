@@ -19,7 +19,6 @@ function Heatmap() {
 
   const handleClick = (id) => {
     setSelectedCell(id);
-    console.log(id);
   };
 
   if (isLoading) {
