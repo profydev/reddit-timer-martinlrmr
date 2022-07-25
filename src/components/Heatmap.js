@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Heatmap.style';
 import tempdata from './tempdata';
 
 function Heatmap() {
+  const [selectedCell, setSelectedCell] = useState('');
+
   const weekdays = [...Array(7).keys()];
   const hours = [...Array(24).keys()];
 
@@ -14,19 +16,45 @@ function Heatmap() {
     return { ...dayAcc, [`day${weekday}`]: redditPostsSeperatedByHour };
   }, {});
 
+  const handleClick = (e) => {
+    setSelectedCell(e.currentTarget.id);
+  };
+
   function renderCells(redditPostsOfThisDay) {
-    return redditPostsOfThisDay.map((hour) => {
-      if (hour.length > 0) {
+    const dayPosts = tempdata.filter((postsFromEveryDay) => (
+      postsFromEveryDay.weekday === 0)).filter((postsFromEveryDay) => (
+      postsFromEveryDay.hour === 10));
+    console.log(dayPosts);
+
+    return redditPostsOfThisDay.map((postsOfHour, index) => {
+      if (postsOfHour.length > 0) {
+        const { id, hour, weekday } = postsOfHour[0];
         return (
           <S.DataCell
-            posts={hour.length}
-            key={`cell${hour[0].id}`}
+            posts={postsOfHour.length}
+            id={id}
+            key={id}
+            onClick={(e) => handleClick(e, weekday, hour)}
+            hour={hour}
+            weekday={weekday}
+            border={id === selectedCell}
           >
-            {hour.length}
+            {postsOfHour.length}
           </S.DataCell>
         );
       }
-      return <S.DataCell posts="0" key={hour.id}>0</S.DataCell>;
+      return (
+      /* eslint-disable react/no-array-index-key */
+        <S.DataCell
+          posts="0"
+          id={index}
+          key={index}
+          onClick={handleClick}
+        >
+          0
+        </S.DataCell>
+      /* eslint-enable react/no-array-index-key */
+      );
     });
   }
 

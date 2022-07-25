@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Table = styled.table`
   max-width: 1114px;
   width: 100%;
+  table-layout: fixed;
   margin: 0 auto;
   border-collapse: collapse;
   text-align: center;
@@ -21,6 +22,7 @@ export const ColTitles = styled.th`
   border-top: 1px solid #F3F3F3;
 
   &:first-of-type {
+    width: 14.1%;
     background-color: ${(props) => props.theme.color.light};
     border: none;
     border-right: 1px solid #F3F3F3;
@@ -70,7 +72,18 @@ export const DataCell = styled.td`
     )};
   /* eslint-enable no-nested-ternary */
   /* eslint-enable indent */
+  outline: ${(props) => (
+    props.border
+    ? 'solid 1px black'
+    : 'none'
+  )};
+  
+  
+  
+
   &:hover, :focus {
-    outline: solid 1px ${(props) => props.theme.color.dark};;
+    background-color: #A0CE93;
+    outline: solid 1px ${(props) => props.theme.color.dark};
+    cursor: pointer;
   }
 `;
