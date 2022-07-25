@@ -5,15 +5,11 @@ import * as S from './Form.style';
 import Button from './Button';
 
 function Form() {
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
   const { subredditParameter } = useParams();
-  const [subreddit, setSubreddit] = useState('');
+  const [subreddit, setSubreddit] = useState(subredditParameter);
 
   useEffect(() => {
     setSubreddit(subredditParameter);
@@ -29,9 +25,7 @@ function Form() {
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.Label htmlFor="input">
-        r/
-      </S.Label>
+      <S.Label htmlFor="input">r/</S.Label>
       <S.Input
         type="text"
         name="subreddit"
@@ -42,12 +36,9 @@ function Form() {
           required: true,
           onChange: (e) => handleChange(e),
         })}
-        errorStyling={errors.subreddit}
       />
       <Button type="submit">SEARCH</Button>
-      {errors.subreddit && <S.Error>enter text to search</S.Error>}
     </S.Form>
   );
 }
-
 export default Form;
