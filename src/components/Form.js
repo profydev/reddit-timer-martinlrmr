@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as S from './Form.style';
 
-import Heatmap from './Heatmap';
 import Button from './Button';
 
 function Form() {
@@ -41,12 +40,12 @@ function Form() {
             required: true,
             onChange: (e) => handleChange(e),
           })}
-          errorStyling={errors.subreddit}
         />
+        <Button type="submit">SEARCH</Button>
       </S.Form>
-      <Button type="submit">SEARCH</Button>
-      <Heatmap />
+      {/* <Heatmap /> */}
     </>
   );
 }
+
 export default Form;

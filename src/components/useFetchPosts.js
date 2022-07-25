@@ -28,7 +28,20 @@ function useFetchPosts(subredditParameter) {
 
     fetchTopRedditPosts(subredditParameter)
       .then((newPosts) => {
-        setPosts(newPosts);
+        setPosts(() => newPosts.map((redditPost) => (
+          {
+            id: redditPost.data.id,
+            title: redditPost.data.title,
+            permalink: redditPost.data.permalink,
+            created: redditPost.data.created,
+            score: redditPost.data.score,
+            num_comments: redditPost.data.num_comments,
+            author: redditPost.data.author,
+            weekday: new Date(redditPost.data.created * 1000).toLocaleString('en-us', { weekday: 'long' }),
+            hour: new Date(redditPost.data.created * 1000).getHours(),
+            time: new Date(redditPost.data.created * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).toLowerCase(),
+          }
+        )));
         setStatus('resolved');
       })
       .catch(() => setStatus('rejected'));
