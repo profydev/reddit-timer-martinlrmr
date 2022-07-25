@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './Search.style';
 import Form from '../components/Form';
+import Heatmap from '../components/Heatmap';
 
 function Search({ userinput, handleChange }) {
   return (
@@ -11,6 +12,7 @@ function Search({ userinput, handleChange }) {
         userinput={userinput}
         handleChange={handleChange}
       />
+      <Heatmap />
     </S.Container>
   );
 }
