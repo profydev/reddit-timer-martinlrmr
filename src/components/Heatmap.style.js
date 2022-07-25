@@ -16,11 +16,10 @@ export const TitlesRow = styled.thead`
   font-size: 14px;
   color: #787878;
   margin-bottom: 0;
-  `;
+`;
 
 export const ColTitles = styled.th`
   border-top: 1px solid #F3F3F3;
-
   &:first-of-type {
     width: 14.1%;
     background-color: ${(props) => props.theme.color.light};
@@ -77,13 +76,36 @@ export const DataCell = styled.td`
     ? 'solid 1px black'
     : 'none'
   )};
-  
-  
-  
-
   &:hover, :focus {
     background-color: #A0CE93;
     outline: solid 1px ${(props) => props.theme.color.dark};
     cursor: pointer;
   }
+`;
+
+export const Error = styled.p`
+  color: #ff726f;
+  font-size: 14px;
+  margin-top: 0em;
+  margin-right: 4.5em;
+`;
+
+const spin = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`;
+
+export const Spinner = styled.div`
+  border: 0.375em solid rgba(0, 0, 0, 0);
+  border-top: 0.375em solid #FEB756;
+  border-radius: 50%;
+  width: 4.4375em;
+  height: 4.4375em;
+  animation: ${spin} 1.5s linear infinite;
+  margin: 0 auto;
+  margin-top: 3.6em;
 `;

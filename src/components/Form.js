@@ -7,15 +7,11 @@ import Heatmap from './Heatmap';
 import Button from './Button';
 
 function Form() {
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
   const { subredditParameter } = useParams();
-  const [subreddit, setSubreddit] = useState('');
+  const [subreddit, setSubreddit] = useState(subredditParameter);
 
   useEffect(() => {
     setSubreddit(subredditParameter);
@@ -48,13 +44,9 @@ function Form() {
           errorStyling={errors.subreddit}
         />
       </S.Form>
-
       <Button type="submit">SEARCH</Button>
-      {errors.subreddit && <S.Error>enter text to search</S.Error>}
-
       <Heatmap />
     </>
   );
 }
-
 export default Form;

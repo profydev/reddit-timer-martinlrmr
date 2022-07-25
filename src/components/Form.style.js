@@ -24,10 +24,3 @@ export const Input = styled.input`
     : '1px solid #E6E6E6')};
   border-radius: 4px;
 `;
-
-export const Error = styled.p`
-  color: #ff726f;
-  font-size: 14px;
-  margin-top: 0em;
-  margin-right: 4.5em;
-`;
