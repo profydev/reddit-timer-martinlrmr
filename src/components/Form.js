@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as S from './Form.style';
 import Button from './Button';
 
 function Form() {
   const { register, handleSubmit } = useForm();
+  const { subredditParameter } = useParams();
   const navigate = useNavigate();
 
-  const [subreddit, setSubreddit] = useState('');
+  const [subreddit, setSubreddit] = useState(subredditParameter);
 
   const handleChange = (event) => {
     setSubreddit(event.target.value);
