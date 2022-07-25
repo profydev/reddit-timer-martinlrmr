@@ -7,7 +7,6 @@ function Heatmap() {
   const { subredditParameter } = useParams();
   const { isLoading, hasError, posts } = useFetchPosts(subredditParameter);
 
-  console.log(subredditParameter);
   if (isLoading) {
     return (
       <S.Spinner />
