@@ -6,7 +6,7 @@ test('loads 500 top posts from the Reddit API', async () => {
 
   expect(result.current.isLoading).toBe(true);
   expect(result.current.posts).toEqual([]);
-
+  
   await waitForNextUpdate();
 
   expect(result.current.isLoading).toBe(false);

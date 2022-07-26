@@ -27,7 +27,6 @@ function FormC() {
       fetch(url)
         .then((response) => response.json())
         .then((redditResponse) => {
-          console.log(redditResponse);
 
           accumulator = accumulator.concat(redditResponse.data.children.map((redditPost) => (
             {
@@ -43,8 +42,6 @@ function FormC() {
               time: new Date(redditPost.data.created * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).toLowerCase(),
             }
           )));
-
-          console.log(accumulator);
 
           if (accumulator.length < 500) {
             const nextUrlQuery = `${baseUrl}&after=${redditResponse.data.after}`;
