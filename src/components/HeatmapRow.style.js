@@ -41,7 +41,7 @@ export const DataCell = styled.td`
   /* eslint-enable no-nested-ternary */
   /* eslint-enable indent */
   outline: ${(props) => (
-    props.selected
+    props.activeHour
     ? 'solid 1px black'
     : 'none'
   )};

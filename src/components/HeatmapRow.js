@@ -15,8 +15,8 @@ const weekdays = [
 function HeatmapRow({
   day,
   postsPerHour,
-  selectedDayAndHour,
-  onClickCell,
+  activeHour,
+  setActiveDayAndHour,
 }) {
   return (
     <tr>
@@ -26,8 +26,8 @@ function HeatmapRow({
         // eslint-disable-next-line react/no-array-index-key
           key={hour}
           numPosts={numPosts}
-          selected={hour === selectedDayAndHour}
-          onClick={() => onClickCell({ day, hour })}
+          activeHour={activeHour === hour}
+          onClick={() => setActiveDayAndHour({ day, hour })}
         >
           {numPosts}
         </S.DataCell>
@@ -39,13 +39,8 @@ function HeatmapRow({
 HeatmapRow.propTypes = {
   day: PropTypes.number.isRequired,
   postsPerHour: PropTypes.arrayOf(PropTypes.number).isRequired,
-  selectedDayAndHour: PropTypes.number,
-  onClickCell: PropTypes.func,
+  activeHour: PropTypes.number.isRequired,
+  setActiveDayAndHour: PropTypes.func.isRequired,
 };
 
-HeatmapRow.defaultProps = {
-  selectedDayAndHour: null,
-  onClickCell: () => {},
-};
-
-export default HeatmapRow;
+export default React.memo(HeatmapRow);

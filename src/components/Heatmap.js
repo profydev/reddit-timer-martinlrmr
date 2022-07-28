@@ -5,7 +5,8 @@ import * as S from './Heatmap.style';
 import HeatmapRow from './HeatmapRow';
 import HeatmapHeaderRow from './HeatmapHeaderRow';
 
-function Heatmap({ postsPerDay, onClickCell, selectedDayAndHour }) {
+function Heatmap({ postsPerDay, setActiveDayAndHour, activeCell }) {
+  console.log(activeCell);
   return (
     <>
       <S.Table>
@@ -17,15 +18,15 @@ function Heatmap({ postsPerDay, onClickCell, selectedDayAndHour }) {
               key={day}
               day={day}
               postsPerHour={postsPerHour}
-              onClickCell={onClickCell}
-              selectedDayAndHour={selectedDayAndHour.day === day ? selectedDayAndHour.hour : null}
+              activeHour={activeCell.day === day ? activeCell.hour : null}
+              setActiveDayAndHour={setActiveDayAndHour}
             />
           ))}
         </tbody>
       </S.Table>
       <S.Caption>
         All times are shown in your timezone:
-        {Intl.DateTimeFormat().resolvedOptions().timeZone}
+        {` ${Intl.DateTimeFormat().resolvedOptions().timeZone}`}
       </S.Caption>
     </>
   );
@@ -33,8 +34,8 @@ function Heatmap({ postsPerDay, onClickCell, selectedDayAndHour }) {
 
 Heatmap.propTypes = {
   postsPerDay: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  onClickCell: PropTypes.func.isRequired,
-  selectedDayAndHour: PropTypes.shape({
+  setActiveDayAndHour: PropTypes.func.isRequired,
+  activeCell: PropTypes.shape({
     day: PropTypes.number,
     hour: PropTypes.number,
   }).isRequired,
