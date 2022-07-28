@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
+const NUM_POSTS_TO_FETCH = 500;
+const MAX_NUM_POSTS_PER_PAGE = 100;
+
 export async function fetchTopRedditPosts(subredditParameter, previousPosts = [], after = null) {
-  let url = `https://www.reddit.com/r/${subredditParameter}/top.json?t=year&limit=100`;
+  let url = `https://www.reddit.com/r/${subredditParameter}/top.json?t=year&limit=${MAX_NUM_POSTS_PER_PAGE}`;
   if (after) {
     url += `&after=${after}`;
   }
@@ -9,48 +12,49 @@ export async function fetchTopRedditPosts(subredditParameter, previousPosts = []
   const response = await fetch(url);
   const { data } = await response.json();
   const allPosts = previousPosts.concat(data.children);
-
-  const noMorePosts = data && data.dist < 100;
-  const limitReached = allPosts.length >= 500;
+  const noMorePosts = data && data.dist < MAX_NUM_POSTS_PER_PAGE;
+  const limitReached = allPosts.length >= NUM_POSTS_TO_FETCH;
   if (noMorePosts || limitReached) {
     return allPosts;
   }
-
   return fetchTopRedditPosts(subredditParameter, allPosts, data.after);
 }
 
+function groupPostsPerDayAndHour(posts) {
+  const postsPerDay = Array(7)
+    .fill()
+    .map(() => Array(24).fill().map(() => 0));
+
+  posts.forEach((post) => {
+    const createdAt = new Date(post.data.created_utc * 1000);
+    const dayOfWeek = createdAt.getDay();
+    const hour = createdAt.getHours();
+
+    postsPerDay[dayOfWeek][hour] += 1;
+  });
+
+  return postsPerDay;
+}
+
 function useFetchPosts(subredditParameter) {
-  const [posts, setPosts] = useState([]);
+  const [postsPerDay, setPostsPerDay] = useState([]);
   const [status, setStatus] = useState('pending');
 
   useEffect(() => {
     setStatus('pending');
 
     fetchTopRedditPosts(subredditParameter)
-      .then((newPosts) => {
-        setPosts(() => newPosts.map((redditPost) => (
-          {
-            id: redditPost.data.id,
-            title: redditPost.data.title,
-            permalink: redditPost.data.permalink,
-            created: redditPost.data.created,
-            score: redditPost.data.score,
-            num_comments: redditPost.data.num_comments,
-            author: redditPost.data.author,
-            weekday: new Date(redditPost.data.created * 1000).toLocaleString('en-us', { weekday: 'long' }),
-            hour: new Date(redditPost.data.created * 1000).getHours(),
-            time: new Date(redditPost.data.created * 1000).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).toLowerCase(),
-          }
-        )));
+      .then((posts) => groupPostsPerDayAndHour(posts))
+      .then((newpostsPerDay) => {
+        setPostsPerDay(newpostsPerDay);
         setStatus('resolved');
       })
       .catch(() => setStatus('rejected'));
   }, [subredditParameter]);
-
   return {
     isLoading: status === 'pending',
     hasError: status === 'rejected',
-    posts,
+    postsPerDay,
   };
 }
 

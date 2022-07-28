@@ -16,32 +16,32 @@ export const DataCell = styled.td`
   font-weight: 700;
   color: ${(props) => props.theme.color.light};
   background-color: ${(props) => (
-    props.posts > 9
+    props.numPosts > 9
     ? '#3984a3'
-    : props.posts > 8
+    : props.numPosts > 8
     ? '#5aad8c'
-    : props.posts > 7
+    : props.numPosts > 7
     ? '#5cb391'
-    : props.posts > 6
+    : props.numPosts > 6
     ? '#5db492'
-    : props.posts > 5
+    : props.numPosts > 5
     ? '#5eb391'
-    : props.posts > 4
+    : props.numPosts > 4
     ? '#8cc894'
-    : props.posts > 3
+    : props.numPosts > 3
     ? '#99cd94'
-    : props.posts > 2
+    : props.numPosts > 2
     ? '#a0ce93'
-    : props.posts > 1
+    : props.numPosts > 1
     ? '#a9d194'
-    : props.posts > 0
+    : props.numPosts > 0
     ? '#aed396'
     : '#e0e592'
     )};
   /* eslint-enable no-nested-ternary */
   /* eslint-enable indent */
   outline: ${(props) => (
-    props.border
+    props.selected
     ? 'solid 1px black'
     : 'none'
   )};

@@ -1,71 +1,43 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useFetchPosts from './useFetchPosts';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as S from './Heatmap.style';
 
-import TableRow from './TableRow';
+import HeatmapRow from './HeatmapRow';
+import HeatmapHeaderRow from './HeatmapHeaderRow';
 
-function Heatmap() {
-  const { subredditParameter } = useParams();
-  const { isLoading, hasError, posts } = useFetchPosts(subredditParameter);
-  const [selectedCell, setSelectedCell] = useState('');
-
-  const filteredPosts = (weekday) => {
-    const daysPost = posts.filter((post) => post.weekday === weekday);
-    const hours = [...Array(24).keys()];
-    const sortedByHour = hours.map((hour) => daysPost.filter((post) => post.hour === hour));
-    return sortedByHour;
-  };
-
-  const handleClick = (id) => {
-    setSelectedCell(id);
-  };
-
-  if (isLoading) {
-    return (
-      <S.Spinner />
-    );
-  }
-  if (hasError) {
-    return (
-      <S.Error>Something went wrong. Please check the subreddit you entered and try again.</S.Error>
-    );
-  }
+function Heatmap({ postsPerDay, onClickCell, selectedDayAndHour }) {
   return (
     <>
       <S.Table>
-        <S.TitlesRow>
-          <tr>
-            <S.ColTitles> </S.ColTitles>
-            <S.ColTitles colSpan="2">12.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">2.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">4.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">6.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">8.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">10.00am</S.ColTitles>
-            <S.ColTitles colSpan="2">12.00pm</S.ColTitles>
-            <S.ColTitles colSpan="2">2.00pm</S.ColTitles>
-            <S.ColTitles colSpan="2">4.00pm</S.ColTitles>
-            <S.ColTitles colSpan="2">6.00pm</S.ColTitles>
-            <S.ColTitles colSpan="2">8.00pm</S.ColTitles>
-            <S.ColTitles colSpan="2">10.00pm</S.ColTitles>
-          </tr>
-        </S.TitlesRow>
-
+        <HeatmapHeaderRow />
         <tbody>
-          <TableRow day="Sunday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Monday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Tuesday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Wednesday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Thursday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Friday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
-          <TableRow day="Saturday" filteredPosts={filteredPosts} handleClick={handleClick} selectedCell={selectedCell} />
+          {postsPerDay.map((postsPerHour, day) => (
+            <HeatmapRow
+              // eslint-disable-next-line react/no-array-index-key
+              key={day}
+              day={day}
+              postsPerHour={postsPerHour}
+              onClickCell={onClickCell}
+              selectedDayAndHour={selectedDayAndHour.day === day ? selectedDayAndHour.hour : null}
+            />
+          ))}
         </tbody>
       </S.Table>
-      <S.Caption>All times are shown in your timezone: Europe/Berlin</S.Caption>
+      <S.Caption>
+        All times are shown in your timezone:
+        {Intl.DateTimeFormat().resolvedOptions().timeZone}
+      </S.Caption>
     </>
-
   );
 }
+
+Heatmap.propTypes = {
+  postsPerDay: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  onClickCell: PropTypes.func.isRequired,
+  selectedDayAndHour: PropTypes.shape({
+    day: PropTypes.number,
+    hour: PropTypes.number,
+  }).isRequired,
+};
 
 export default Heatmap;

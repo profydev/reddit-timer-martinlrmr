@@ -12,7 +12,7 @@ import * as S from './App.style';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
-import Search from './pages/Search';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   const defaultSubreddit = 'javascript';
@@ -25,7 +25,7 @@ function App() {
         <Header defaultSubreddit={defaultSubreddit} />
         <S.ContentContainer>
           <Routes>
-            <Route path="/search/:subredditParameter" element={<Search key={new Date().getTime()} />} />
+            <Route path="/search/:subredditParameter" element={<SearchPage key={new Date().getTime()} />} />
             <Route path="/" element={<Homepage defaultSubreddit={defaultSubreddit} />} />
           </Routes>
         </S.ContentContainer>
