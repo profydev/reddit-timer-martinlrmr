@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 163px 0 163px;
   font-family: ${(props) => props.theme.font.family.default};
   line-height: ${(props) => props.theme.font.lineHeight.default};
   color: ${(props) => props.theme.color.text};
