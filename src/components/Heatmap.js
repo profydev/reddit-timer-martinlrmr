@@ -6,7 +6,6 @@ import HeatmapRow from './HeatmapRow';
 import HeatmapHeaderRow from './HeatmapHeaderRow';
 
 function Heatmap({ postsPerDay, setActiveDayAndHour, activeCell }) {
-  console.log(activeCell);
   return (
     <>
       <S.Table>
