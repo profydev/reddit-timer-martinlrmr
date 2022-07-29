@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as S from './Form.style';
+
 import Button from './Button';
 import PostsTable from './PostsTables';
 
@@ -45,4 +46,5 @@ function Form() {
     </>
   );
 }
+
 export default Form;

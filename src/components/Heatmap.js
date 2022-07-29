@@ -1,29 +1,43 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import useFetchPosts from './useFetchPosts';
+import PropTypes from 'prop-types';
 import * as S from './Heatmap.style';
 
-function Heatmap() {
-  const { subredditParameter } = useParams();
-  const { isLoading, hasError, posts } = useFetchPosts(subredditParameter);
+import HeatmapRow from './HeatmapRow';
+import HeatmapHeaderRow from './HeatmapHeaderRow';
 
-  if (isLoading) {
-    return (
-      <S.Spinner />
-    );
-  }
-
-  if (hasError) {
-    return (
-      <S.Error>Something went wrong. Please check the subreddit you entered and try again.</S.Error>
-    );
-  }
-
+function Heatmap({ postsPerDay, setActiveDayAndHour, activeCell }) {
   return (
-    <div>
-      {posts.length}
-    </div>
+    <>
+      <S.Table>
+        <HeatmapHeaderRow />
+        <tbody>
+          {postsPerDay.map((postsPerHour, day) => (
+            <HeatmapRow
+              // eslint-disable-next-line react/no-array-index-key
+              key={day}
+              day={day}
+              postsPerHour={postsPerHour}
+              activeHour={activeCell.day === day ? activeCell.hour : null}
+              setActiveDayAndHour={setActiveDayAndHour}
+            />
+          ))}
+        </tbody>
+      </S.Table>
+      <S.Caption>
+        All times are shown in your timezone:
+        {` ${Intl.DateTimeFormat().resolvedOptions().timeZone}`}
+      </S.Caption>
+    </>
   );
 }
+
+Heatmap.propTypes = {
+  postsPerDay: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  setActiveDayAndHour: PropTypes.func.isRequired,
+  activeCell: PropTypes.shape({
+    day: PropTypes.number,
+    hour: PropTypes.number,
+  }).isRequired,
+};
 
 export default Heatmap;

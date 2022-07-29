@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  margin-bottom: 3.8em;
 `;
 
 export const Label = styled.label`
