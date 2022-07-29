@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as S from './Form.style';
 import Button from './Button';
+import PostsTable from './PostsTables';
 
 function Form() {
   const { register, handleSubmit } = useForm();
@@ -24,21 +25,24 @@ function Form() {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.Label htmlFor="input">r/</S.Label>
-      <S.Input
-        type="text"
-        name="subreddit"
-        value={subreddit}
-        onChange={handleChange}
-        /* eslint-disable react/jsx-props-no-spreading */
-        {...register('subreddit', {
-          required: true,
-          onChange: (e) => handleChange(e),
-        })}
-      />
-      <Button type="submit">SEARCH</Button>
-    </S.Form>
+    <>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.Label htmlFor="input">r/</S.Label>
+        <S.Input
+          type="text"
+          name="subreddit"
+          value={subreddit}
+          onChange={handleChange}
+          /* eslint-disable react/jsx-props-no-spreading */
+          {...register('subreddit', {
+            required: true,
+            onChange: (e) => handleChange(e),
+          })}
+        />
+        <Button type="submit">SEARCH</Button>
+      </S.Form>
+      <PostsTable />
+    </>
   );
 }
 export default Form;
