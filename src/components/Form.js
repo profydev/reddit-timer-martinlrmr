@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import * as S from './Form.style';
 
 import Button from './Button';
-import PostsTable from './PostsTables';
 
 function Form() {
   const { register, handleSubmit } = useForm();
@@ -42,7 +41,6 @@ function Form() {
         />
         <Button type="submit">SEARCH</Button>
       </S.Form>
-      <PostsTable />
     </>
   );
 }

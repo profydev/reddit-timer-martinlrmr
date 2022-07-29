@@ -39,8 +39,11 @@ function HeatmapRow({
 HeatmapRow.propTypes = {
   day: PropTypes.number.isRequired,
   postsPerHour: PropTypes.arrayOf(PropTypes.number).isRequired,
-  activeHour: PropTypes.number.isRequired,
+  activeHour: PropTypes.number,
   setActiveDayAndHour: PropTypes.func.isRequired,
 };
 
+HeatmapRow.defaultProps = {
+  activeHour: null,
+};
 export default React.memo(HeatmapRow);

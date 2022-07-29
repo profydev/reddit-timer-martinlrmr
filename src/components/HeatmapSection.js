@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchPosts from './useFetchPosts';
 import Heatmap from './Heatmap';
+import PostsTable from './PostsTables';
 import * as S from './HeatmapSection.style';
 
 function HeatmapSection() {
@@ -30,6 +31,8 @@ function HeatmapSection() {
         activeCell={activeCell}
         setActiveDayAndHour={setActiveDayAndHour}
       />
+      {activeCell.day !== null
+      && <PostsTable />}
     </S.HeatmapContainer>
 
   );
