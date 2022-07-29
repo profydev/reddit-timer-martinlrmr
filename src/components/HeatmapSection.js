@@ -8,7 +8,7 @@ import * as S from './HeatmapSection.style';
 function HeatmapSection() {
   const { subredditParameter } = useParams();
   const { isLoading, hasError, postsPerDay } = useFetchPosts(subredditParameter);
-  const [activeCell, setActiveCell] = useState({ day: null, hour: null });
+  const [activeCell, setActiveCell] = useState({ day: null, hour: null, numPosts: null });
 
   const setActiveDayAndHour = (dayAndHourOfCell) => {
     setActiveCell(dayAndHourOfCell);
@@ -32,6 +32,7 @@ function HeatmapSection() {
         setActiveDayAndHour={setActiveDayAndHour}
       />
       {activeCell.day !== null
+      && activeCell.numPosts
       && <PostsTable />}
     </S.HeatmapContainer>
 

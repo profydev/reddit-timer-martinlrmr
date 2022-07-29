@@ -27,7 +27,7 @@ function HeatmapRow({
           key={hour}
           numPosts={numPosts}
           activeHour={activeHour === hour}
-          onClick={() => setActiveDayAndHour({ day, hour })}
+          onClick={() => setActiveDayAndHour({ day, hour, numPosts })}
         >
           {numPosts}
         </S.DataCell>
