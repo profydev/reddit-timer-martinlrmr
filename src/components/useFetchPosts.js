@@ -29,7 +29,6 @@ function groupPostsPerDayAndHour(posts) {
     const createdAt = new Date(post.data.created_utc * 1000);
     const dayOfWeek = createdAt.getDay();
     const hour = createdAt.getHours();
-
     postsPerDay[dayOfWeek][hour] += 1;
   });
 
@@ -37,6 +36,7 @@ function groupPostsPerDayAndHour(posts) {
 }
 
 function useFetchPosts(subredditParameter) {
+  const [ungroupedPosts, setUngroupedPosts] = useState([]);
   const [postsPerDay, setPostsPerDay] = useState([]);
   const [status, setStatus] = useState('pending');
 
@@ -44,7 +44,10 @@ function useFetchPosts(subredditParameter) {
     setStatus('pending');
 
     fetchTopRedditPosts(subredditParameter)
-      .then((posts) => groupPostsPerDayAndHour(posts))
+      .then((posts) => {
+        setUngroupedPosts(posts);
+        return groupPostsPerDayAndHour(posts);
+      })
       .then((newpostsPerDay) => {
         setPostsPerDay(newpostsPerDay);
         setStatus('resolved');
@@ -54,6 +57,7 @@ function useFetchPosts(subredditParameter) {
   return {
     isLoading: status === 'pending',
     hasError: status === 'rejected',
+    ungroupedPosts,
     postsPerDay,
   };
 }

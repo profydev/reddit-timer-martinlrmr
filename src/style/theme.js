@@ -22,5 +22,8 @@ const theme = {
     headerHeight: '100px',
     footerHeight: '100px',
   },
+  postsTableCells: {
+    padding: '0.3em 0.857em 0.3em 0.857em',
+  },
 };
 export default theme;
