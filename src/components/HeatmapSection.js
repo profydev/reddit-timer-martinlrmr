@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchPosts from './useFetchPosts';
 import Heatmap from './Heatmap';
@@ -14,6 +14,10 @@ function HeatmapSection() {
     postsPerDay,
   } = useFetchPosts(subredditParameter);
   const [activeCell, setActiveCell] = useState({ day: null, hour: null, numPosts: null });
+
+  useEffect(() => {
+    setActiveCell({ day: null, hour: null, numPosts: null });
+  }, [subredditParameter]);
 
   const setActiveDayAndHour = (dayAndHourOfCell) => {
     setActiveCell(dayAndHourOfCell);
