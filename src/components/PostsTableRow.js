@@ -22,7 +22,7 @@ function PostsTableRow({
       <S.Td>{timePosted}</S.Td>
       <S.Td>{score}</S.Td>
       <S.Td>{commments}</S.Td>
-      <S.Td>{author}</S.Td>
+      <S.Td><S.A href={`https://www.reddit.com/user/${author}`} target="_blank" rel="noreferrer">{author}</S.A></S.Td>
     </tr>
   );
 }
