@@ -27,9 +27,7 @@ function Form() {
   return (
     <>
       <S.Form onSubmit={handleSubmit(onSubmit)}>
-        <S.Label htmlFor="input">
-          r/
-        </S.Label>
+        <S.Label htmlFor="input">r/</S.Label>
         <S.Input
           type="text"
           name="subreddit"
@@ -43,7 +41,6 @@ function Form() {
         />
         <Button type="submit">SEARCH</Button>
       </S.Form>
-      {/* <Heatmap /> */}
     </>
   );
 }

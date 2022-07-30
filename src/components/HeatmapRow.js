@@ -21,15 +21,15 @@ function HeatmapRow({
   return (
     <tr>
       <S.RowTitle>{weekdays[day]}</S.RowTitle>
-      {postsPerHour.map((numPosts, hour) => (
+      {postsPerHour.map((posts, hour) => (
         <S.DataCell
         // eslint-disable-next-line react/no-array-index-key
           key={hour}
-          numPosts={numPosts}
+          numPosts={posts.length}
           activeHour={activeHour === hour}
-          onClick={() => setActiveDayAndHour({ day, hour })}
+          onClick={() => setActiveDayAndHour({ day, hour, numPost: posts.length })}
         >
-          {numPosts}
+          {posts.length}
         </S.DataCell>
       ))}
     </tr>
@@ -38,9 +38,20 @@ function HeatmapRow({
 
 HeatmapRow.propTypes = {
   day: PropTypes.number.isRequired,
-  postsPerHour: PropTypes.arrayOf(PropTypes.number).isRequired,
-  activeHour: PropTypes.number.isRequired,
+  postsPerHour: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
+    author: PropTypes.string,
+    authorId: PropTypes.string,
+    createdAt: PropTypes.instanceOf(Date),
+    numComments: PropTypes.number,
+    score: PropTypes.number,
+    title: PropTypes.string,
+    url: PropTypes.string,
+  }))).isRequired,
+  activeHour: PropTypes.number,
   setActiveDayAndHour: PropTypes.func.isRequired,
 };
 
+HeatmapRow.defaultProps = {
+  activeHour: null,
+};
 export default React.memo(HeatmapRow);

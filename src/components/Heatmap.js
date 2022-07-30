@@ -32,7 +32,15 @@ function Heatmap({ postsPerDay, setActiveDayAndHour, activeCell }) {
 }
 
 Heatmap.propTypes = {
-  postsPerDay: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  postsPerDay: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
+    author: PropTypes.string,
+    authorId: PropTypes.string,
+    createdAt: PropTypes.instanceOf(Date),
+    numComments: PropTypes.number,
+    score: PropTypes.number,
+    title: PropTypes.string,
+    url: PropTypes.string,
+  })))).isRequired,
   setActiveDayAndHour: PropTypes.func.isRequired,
   activeCell: PropTypes.shape({
     day: PropTypes.number,
