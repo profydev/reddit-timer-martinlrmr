@@ -39,7 +39,6 @@ function HeatmapSection() {
   const selectedPosts = postsPerDay[day] && postsPerDay[day][hour];
   const showPostsTable = selectedPosts && selectedPosts.length > 0;
 
-  console.log(selectedPosts);
   return (
     <S.HeatmapContainer>
       <Heatmap
