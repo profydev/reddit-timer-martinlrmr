@@ -3,26 +3,20 @@ import PropTypes from 'prop-types';
 import * as S from './PostsTable.style';
 import PostsTableRow from './PostsTableRow';
 
-function PostsTable({ ungroupedPosts, activeCell }) {
-  const activePosts = ungroupedPosts.filter((post) => {
-    const createdAt = new Date(post.data.created_utc * 1000);
-    const dayOfWeek = createdAt.getDay();
-    const hour = createdAt.getHours();
-
-    return dayOfWeek === activeCell.day && hour === activeCell.hour;
-  });
-
-  const renderPostsTableRow = activePosts.sort((post) => post.data.created_utc).map((post) => (
-    <PostsTableRow
-      key={post.data.id}
-      title={post.data.title}
-      timePosted={new Date(post.data.created_utc * 1000).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
-      score={post.data.score}
-      commments={post.data.num_comments}
-      author={post.data.author}
-      permalink={post.data.permalink}
-    />
-  ));
+function PostsTable({ posts }) {
+  const renderPostsTableRow = [...posts]
+    .sort((a, b) => a.createdAt.getMinutes() - b.createdAt.getMinutes())
+    .map((post) => (
+      <PostsTableRow
+        key={post.url}
+        title={post.title}
+        timePosted={post.createdAt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).toLowerCase()}
+        score={post.score}
+        commments={post.numComments}
+        author={post.author}
+        permalink={post.url}
+      />
+    ));
 
   return (
     <S.Table>
@@ -44,12 +38,19 @@ function PostsTable({ ungroupedPosts, activeCell }) {
 }
 
 PostsTable.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  ungroupedPosts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  activeCell: PropTypes.shape({
-    day: PropTypes.number,
-    hour: PropTypes.number,
-  }).isRequired,
+  posts: PropTypes.arrayOf(PropTypes.shape({
+    author: PropTypes.string,
+    authorId: PropTypes.string,
+    createdAt: PropTypes.instanceOf(Date),
+    numComments: PropTypes.number,
+    score: PropTypes.number,
+    title: PropTypes.string,
+    url: PropTypes.string,
+  })),
+};
+
+PostsTable.defaultProps = {
+  posts: [],
 };
 
 export default PostsTable;

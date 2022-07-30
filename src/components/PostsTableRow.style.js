@@ -8,6 +8,6 @@ export const Td = styled.td`
 
 export const A = styled.a`
   color: #0087FF;
-`;
+  `;
 
 export default Td;

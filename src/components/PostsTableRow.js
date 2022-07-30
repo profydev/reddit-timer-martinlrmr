@@ -17,8 +17,8 @@ function PostsTableRow({
   );
 
   const authorWithLengthControlled = (
-    author.length > 12
-      ? `${author.substring(0, 12)}...`
+    author.length > 10
+      ? `${author.substring(0, 10)}...`
       : author
   );
 

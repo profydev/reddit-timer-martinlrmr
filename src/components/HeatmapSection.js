@@ -7,13 +7,14 @@ import * as S from './HeatmapSection.style';
 
 function HeatmapSection() {
   const { subredditParameter } = useParams();
+  const [activeCell, setActiveCell] = useState({ day: null, hour: null, numPosts: null });
+
   const {
     isLoading,
     hasError,
     ungroupedPosts,
     postsPerDay,
   } = useFetchPosts(subredditParameter);
-  const [activeCell, setActiveCell] = useState({ day: null, hour: null, numPosts: null });
 
   useEffect(() => {
     setActiveCell({ day: null, hour: null, numPosts: null });
@@ -22,12 +23,6 @@ function HeatmapSection() {
   const setActiveDayAndHour = (dayAndHourOfCell) => {
     setActiveCell(dayAndHourOfCell);
   };
-
-  const conditionallyShowPostsTable = (
-    (activeCell.day !== null && activeCell.numPosts)
-      ? <PostsTable ungroupedPosts={ungroupedPosts} activeCell={activeCell} />
-      : null
-  );
 
   if (isLoading) {
     return (
@@ -39,6 +34,12 @@ function HeatmapSection() {
       <S.Error>Something went wrong. Please check the subreddit you entered and try again.</S.Error>
     );
   }
+
+  const { day, hour } = activeCell;
+  const selectedPosts = postsPerDay[day] && postsPerDay[day][hour];
+  const showPostsTable = selectedPosts && selectedPosts.length > 0;
+
+  console.log(selectedPosts);
   return (
     <S.HeatmapContainer>
       <Heatmap
@@ -46,7 +47,15 @@ function HeatmapSection() {
         activeCell={activeCell}
         setActiveDayAndHour={setActiveDayAndHour}
       />
-      {conditionallyShowPostsTable}
+      {
+      showPostsTable && (
+        <PostsTable
+          ungroupedPosts={ungroupedPosts}
+          activeCell={activeCell}
+          posts={selectedPosts}
+        />
+      )
+    }
     </S.HeatmapContainer>
 
   );
