@@ -13,4 +13,5 @@ export const Caption = styled.p`
   font-weight: 700;
   font-size: 0.875rem;
   color: ${(props) => props.theme.color.text};
+  margin-bottom: 1.5em;
 `;

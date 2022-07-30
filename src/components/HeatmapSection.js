@@ -19,6 +19,12 @@ function HeatmapSection() {
     setActiveCell(dayAndHourOfCell);
   };
 
+  const conditionallyShowPostsTable = (
+    (activeCell.day !== null && activeCell.numPosts)
+      ? <PostsTable ungroupedPosts={ungroupedPosts} activeCell={activeCell} />
+      : null
+  );
+
   if (isLoading) {
     return (
       <S.Spinner />
@@ -36,14 +42,7 @@ function HeatmapSection() {
         activeCell={activeCell}
         setActiveDayAndHour={setActiveDayAndHour}
       />
-      {activeCell.day !== null
-      && activeCell.numPosts
-      && (
-        <PostsTable
-          ungroupedPosts={ungroupedPosts}
-          activeCell={activeCell}
-        />
-      )}
+      {conditionallyShowPostsTable}
     </S.HeatmapContainer>
 
   );
