@@ -19,10 +19,13 @@ export const Caption = styled.caption`
   font-weight: 400;
   text-align: left;
   color: ${(props) => props.theme.color.dark};
-  margin-bottom: 0.666em;
+  margin-bottom: 0.5em;
 `;
 
 export const Th = styled.th`
   border: solid 1px #DDDDDD;
   padding: ${(props) => props.theme.postsTableCells.padding};
+  &:first-of-type {
+    width: 48%;
+  }
   `;

@@ -11,7 +11,6 @@ function PostsTable({ ungroupedPosts, activeCell }) {
 
     return dayOfWeek === activeCell.day && hour === activeCell.hour;
   });
-  console.log(ungroupedPosts);
 
   const renderPostsTableRow = activePosts.map((post) => (
     <PostsTableRow

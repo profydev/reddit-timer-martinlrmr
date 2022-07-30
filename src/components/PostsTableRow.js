@@ -4,14 +4,21 @@ import * as S from './PostsTableRow.style';
 
 function PostsTableRow({
   title,
+  permalink,
   timePosted,
   score,
   commments,
   author,
 }) {
+  const shortenedTitle = (
+    title.length > 44
+      ? `${title.substring(0, 44)}...`
+      : title
+  );
+
   return (
     <tr>
-      <S.Td>{title}</S.Td>
+      <S.Td><S.A href={`https://reddit.com/${permalink}`} target="_blank" rel="noreferrer">{shortenedTitle}</S.A></S.Td>
       <S.Td>{timePosted}</S.Td>
       <S.Td>{score}</S.Td>
       <S.Td>{commments}</S.Td>
@@ -22,6 +29,7 @@ function PostsTableRow({
 
 PostsTableRow.propTypes = {
   title: PropTypes.string,
+  permalink: PropTypes.string,
   timePosted: PropTypes.string,
   score: PropTypes.number,
   commments: PropTypes.number,
@@ -30,6 +38,7 @@ PostsTableRow.propTypes = {
 
 PostsTableRow.defaultProps = {
   title: '',
+  permalink: '',
   timePosted: '',
   score: null,
   commments: null,
