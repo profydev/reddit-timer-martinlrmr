@@ -25,12 +25,12 @@ function PostsTableRow({
   const authorNameInTable = (
     authorWithLengthControlled === '[deleted]'
       ? author
-      : <S.A href={`https://www.reddit.com/user/${author}`} target="_blank" rel="noreferrer">{authorWithLengthControlled}</S.A>
+      : <S.A href={`https://reddit.com/u/${author}`} target="_blank" rel="noopener noreferrer">{authorWithLengthControlled}</S.A>
   );
 
   return (
     <tr>
-      <S.Td><S.A href={`https://reddit.com/${permalink}`} target="_blank" rel="noreferrer">{titleWithLengthControlled}</S.A></S.Td>
+      <S.Td><S.A href={`https://reddit.com${permalink}`} target="_blank" rel="noopener noreferrer">{titleWithLengthControlled}</S.A></S.Td>
       <S.Td>{timePosted}</S.Td>
       <S.Td>{score}</S.Td>
       <S.Td>{commments}</S.Td>
