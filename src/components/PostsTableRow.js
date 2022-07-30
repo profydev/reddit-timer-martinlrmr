@@ -16,13 +16,19 @@ function PostsTableRow({
       : title
   );
 
+  const authorNameInTable = (
+    author === '[deleted]'
+      ? author
+      : <S.A href={`https://www.reddit.com/user/${author}`} target="_blank" rel="noreferrer">{author}</S.A>
+  );
+
   return (
     <tr>
       <S.Td><S.A href={`https://reddit.com/${permalink}`} target="_blank" rel="noreferrer">{shortenedTitle}</S.A></S.Td>
       <S.Td>{timePosted}</S.Td>
       <S.Td>{score}</S.Td>
       <S.Td>{commments}</S.Td>
-      <S.Td><S.A href={`https://www.reddit.com/user/${author}`} target="_blank" rel="noreferrer">{author}</S.A></S.Td>
+      <S.Td>{authorNameInTable}</S.Td>
     </tr>
   );
 }
